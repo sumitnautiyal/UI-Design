@@ -1,0 +1,18 @@
+/*Example of using CSS Variables */
+:root{
+	--main: #97D5A2;
+	--secondary: #222;
+	--font: 'Roboto' , sans-serif;
+}
+.first-paragraph{
+	background-color: var(--main);
+	color: var(--secondary);
+	font-family: var(--font);
+}
+.second-paragraph{
+	--main: #89D6D2;
+	--font: 'Lato' , sans-serif;
+	background-color: var(--main);
+	color: var(--secondary);
+	font-family: var(--font);
+}

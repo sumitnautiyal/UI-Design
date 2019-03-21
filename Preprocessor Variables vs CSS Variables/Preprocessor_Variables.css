@@ -1,0 +1,19 @@
+/*Example of Preprocessor Variables in CSS*/
+<style type="text/css">
+$main: #97D5A2;
+$secondary: #222
+$font: 'Roboto', sans-serif;
+
+.first-paragraph{
+	background-color: :$main;
+	font-family: $font;
+	color: $secondary;
+}
+.second-paragraph{
+	$main: #89D6D2;
+	$font: 'Lato', 'sans-serif;
+	background-color: $main;
+	font-family: $font;
+	color: $secondary;
+}
+</style>
