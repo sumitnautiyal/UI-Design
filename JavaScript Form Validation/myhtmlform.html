@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC"-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Simple form validation using JavaScript</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>	
+
+<body>
+<h1 class="text-white text-center font-weight-normal bg-info" style="font-size: 42px;">Simple form validation using JavaScript</h1>
+	<div class="container"><br>
+		<div class="col-lg-6 m-auto d-block bg-light">
+			<form action="#" onsubmit="return validation()" class="bg-transparent font-weight-normal">
+				<div class="form-group font-weight-normal">
+					<label for="user" class="font-weight-bold bg-light">Username:</label>
+					<input type="text" name="user" class="form-control" id="user" autocomplete="off">
+					<span id="username" class="text-danger font-weight-bold"> </span>
+				</div>
+				<div class="form-group">
+					<label class="font-weight-bold">Password:</label>
+					<input type="text" name="pass" class="form-control" id="pass" autocomplete="off">
+					<span id="passwords" class="text-danger font-weight-bold"> </span>
+				</div>
+				<div class="form-group">
+					<label class="font-weight-bold">Confirm Password:</label>
+					<input type="text" name="conpass" class="form-control" id="conpass" autocomplete="off">
+					<span id="confrmpass" class="text-danger font-weight-bold"> </span>
+				</div>
+				<div class="form-group">
+					<label class="font-weight-bold">Mobile Number:</label>
+					<input type="text" name="mobile" class="form-control" id="mobileNumber" autocomplete="off">
+					<span id="mobileno" class="text-danger font-weight-bold"> </span>
+				</div>
+				<div class="form-group">
+					<label class="font-weight-bold">Email:</label>
+					<input type="text" name="email" class="form-control" id="emails" autocomplete="off">
+					<span id="emailids" class="text-danger font-weight-bold"> </span>
+				</div>
+				<input type="submit" name="submit" value="submit" class="btn btn-outline-dark" 	autocomplete="off">
+			</form><br><br>
+		</div>
+	</div>
+</form>
+
+	<script type="text/javascript">
+		function validation(){
+			var user = document.getElementById('user').value;
+			var pass = document.getElementById('pass').value;
+			var confirmpass = document.getElementById('conpass').value;
+			var mobileNumber = document.getElementById('mobileNumber').value;
+			var emails = document.getElementById('emails').value;
+
+			if(user == ""){
+				document.getElementById('username').innerHTML ="Enter username";
+				return false;
+			}
+			if((user.length <= 4) || (user.length > 30)) {
+				document.getElementById('username').innerHTML ="The lenght must be between 4 and 30";
+				return false;	
+			}
+			if(!isNaN(user)){
+				document.getElementById('username').innerHTML ="Enter characters only";
+				return false;
+			}
+			if(pass == ""){
+				document.getElementById('passwords').innerHTML ="Enter the password";
+				return false;
+			}
+			if((pass.length <= 8) || (pass.length > 50)) {
+				document.getElementById('passwords').innerHTML ="The length of password must be between 8 and 50";
+				return false;	
+			}
+			if(pass!=confirmpass){
+				document.getElementById('confrmpass').innerHTML ="Both passwords should match";
+				return false;
+			}
+			if(confirmpass == ""){
+				document.getElementById('confrmpass').innerHTML ="Enter password again";
+				return false;
+			}
+			if(mobileNumber == ""){
+				document.getElementById('mobileno').innerHTML ="Enter the Mobile Number";
+				return false;
+			}
+			if(isNaN(mobileNumber)){
+				document.getElementById('mobileno').innerHTML ="Only numbers are allowed";
+				return false;
+			}
+			if(mobileNumber.length!=10){
+				document.getElementById('mobileno').innerHTML ="Mobile Number must be 10 digits only";
+				return false;
+			}
+			if(emails == ""){
+				document.getElementById('emailids').innerHTML ="Enter the email id";
+				return false;
+			}
+			if(emails.indexOf('@') <= 0 ){
+				document.getElementById('emailids').innerHTML ="Enter the correct email id";
+				return false;
+			}
+			if((emails.charAt(emails.length-4)!='.') && (emails.charAt(emails.length-3)!='.')){
+				document.getElementById('emailids').innerHTML ="Enter the correct email id";
+				return false;
+			}
+		}
+	</script>
+</body>
+</html>
